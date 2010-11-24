@@ -1,0 +1,10 @@
+ical_backup is used to keep backup copies of offsite calendars.  
+
+It stores them in /usr/local/ical_backup.
+
+Installed on local crontab like so:
+
+0 0 * * * /usr/local/bin/ruby -W0 /usr/local/bin/ical_backup.rb
+
+The following is also put in place to ensure cleanup of backups older than 30 dats:
+0 15 * * * /usr/bin/find /usr/local/ical_backup/ -type f -mtime +30 | /usr/bin/xargs /bin/rm
